@@ -1,0 +1,33 @@
+{
+  "generationParameters": {
+    "generationDate": "Wed Jul 16 2025 00:40:11 GMT+0000 (Coordinated Universal Time)",
+    "generatorPlatform": "SAP Business Application Studio",
+    "serviceType": "SAP System (ABAP On Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "http://vhemmedvci.sap.emsteel.com:44300/sap/opu/odata4/sap/zp2p_ui_gp_o4/srvd/sap/zp2p_ui_gp/0001/",
+    "appName": "p2pgp",
+    "appTitle": "Gate pass cockpit",
+    "appDescription": "Gate pass cockpit",
+    "appNamespace": "ae.emsteel.asas",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.120.23",
+    "enableCodeAssist": false,
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.18.2",
+    "template": "List Report Page V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "ZC_P2P_INBGATEPASS"
+      },
+      {
+        "type": "Navigation Entity",
+        "value": "_Item"
+      }
+    ],
+    "launchText": "In order to launch the generated app, simply run the following from the generated app root folder:\n\n```\n    npm start\n```"
+  }
+}
