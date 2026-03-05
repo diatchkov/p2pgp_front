@@ -1,0 +1,38 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog
+        id="wbidDialog"
+        title="Select Weighbridge Device"
+        contentWidth="400px">
+
+        <content>
+            <Select
+                id="wbidSelect"
+                width="100%"
+                items="{wbidModel>/items}">
+                <items>
+                    <core:Item
+                        id = "wbidItem"
+                        key="{wbidModel>DeviceID}"
+                        text="{wbidModel>DeviceID}" />
+                </items>
+            </Select>
+        </content>
+
+        <buttons>
+            <Button
+                id = "wbidOK"
+                text="OK"
+                type="Emphasized"
+                press=".onWBIDConfirm" />
+            <Button
+                id = "wdidCancel"
+                text="Cancel"
+                press=".onWBIDCancel" />
+        </buttons>
+
+    </Dialog>
+
+</core:FragmentDefinition>

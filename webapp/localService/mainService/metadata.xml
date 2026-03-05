@@ -511,6 +511,12 @@
                     <OnDelete Action="Cascade"/>
                 </NavigationProperty>
             </EntityType>
+            <EntityType Name="ZC_P2P_WB_DEVICEVHType">
+                <Key>
+                    <PropertyRef Name="DeviceID"/>
+                </Key>
+                <Property Name="DeviceID" Type="Edm.String" Nullable="false" MaxLength="40"/>
+            </EntityType>
             <ComplexType Name="ZC_P2P_INBGATEPASSControl">
                 <Property Name="BillOfLanding" Type="Edm.Byte" Nullable="false"/>
                 <Property Name="ContainerID" Type="Edm.Byte" Nullable="false"/>
@@ -607,6 +613,7 @@
             <Action Name="PostGIWithTolerance" IsBound="true">
                 <Parameter Name="_it" Type="com.sap.gateway.srvd.zp2p_ui_gp.v0001.ZC_P2P_OTBGATEPASSType" Nullable="false"/>
                 <Parameter Name="reason" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Parameter Name="employee_name" Type="Edm.String" Nullable="false" MaxLength="80"/>
             </Action>
             <Action Name="GetGPExit" IsBound="true">
                 <Parameter Name="_it" Type="com.sap.gateway.srvd.zp2p_ui_gp.v0001.ZC_P2P_OTBGATEPASSType" Nullable="false"/>
@@ -772,6 +779,7 @@
                     <NavigationPropertyBinding Path="_OtbGatePass" Target="ZC_P2P_OTBGATEPASS"/>
                     <NavigationPropertyBinding Path="_OtbGatePassDlvItem" Target="ZC_P2P_OTBGATEPASSDLVITEM"/>
                 </EntitySet>
+                <EntitySet Name="ZC_P2P_WB_DEVICEVH" EntityType="com.sap.gateway.srvd.zp2p_ui_gp.v0001.ZC_P2P_WB_DEVICEVHType"/>
                 <EntitySet Name="ZI_UserContactCard" EntityType="com.sap.gateway.srvd.zp2p_ui_gp.v0001.ZI_UserContactCardType"/>
             </EntityContainer>
             <Annotations Target="SAP__self.ZC_P2P_GPC_POType/GatePassID">
@@ -1627,7 +1635,7 @@
                 <Annotation Term="SAP__common.Text" Path="TruckTypeText">
                     <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextFirst"/>
                 </Annotation>
-                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
                 <Annotation Term="SAP__common.ValueListReferences">
                     <Collection>
                         <String>../../../../srvd_f4/sap/zc_p2p_truck_typevh/0001;ps='srvd-zp2p_ui_gp-0001';va='com.sap.gateway.srvd.zp2p_ui_gp.v0001.et-zc_p2p_inbgatepass.trucktype'/$metadata</String>
@@ -3589,7 +3597,7 @@
                 <Annotation Term="SAP__common.Text" Path="TruckTypeText">
                     <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextFirst"/>
                 </Annotation>
-                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
                 <Annotation Term="SAP__common.ValueListReferences">
                     <Collection>
                         <String>../../../../srvd_f4/sap/zc_p2p_truck_typevh/0001;ps='srvd-zp2p_ui_gp-0001';va='com.sap.gateway.srvd.zp2p_ui_gp.v0001.et-zc_p2p_otbgatepass.trucktype'/$metadata</String>
@@ -4155,6 +4163,14 @@
                 <Annotation Term="SAP__common.ValueListWithFixedValues"/>
                 <Annotation Term="SAP__common.Label" String="Reason"/>
                 <Annotation Term="SAP__common.QuickInfo" String="GPC: post with tolerance reason"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PostGIWithTolerance(SAP__self.ZC_P2P_OTBGATEPASSType)/employee_name">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zc_p2p_gpc_employee/0001;ps='srvd-zp2p_ui_gp-0001';va='com.sap.gateway.srvd.zp2p_ui_gp.v0001.ae-zc_p2p_otbgatepass.postgiwithtolerance.employee_name.ZC_P2P_OTBGATEPASSType'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Employee name"/>
             </Annotations>
             <Annotations Target="SAP__self.ZC_P2P_OTBGATEPASSType">
                 <Annotation Term="SAP__common.Label" String="GPC: outbound gate pass projection"/>
@@ -5445,6 +5461,40 @@
                 </Annotation>
                 <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
             </Annotations>
+            <Annotations Target="SAP__self.ZC_P2P_WB_DEVICEVHType">
+                <Annotation Term="SAP__common.Label" String="Gate pass: weighbridge device VH"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_P2P_WB_DEVICEVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/OR SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group SAP__capabilities.SearchExpressions/phrase"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
             <Annotations Target="SAP__self.PostGItoCrusher(SAP__self.ZC_P2P_INBGATEPASSType)/Plant">
                 <Annotation Term="SAP__UI.ParameterDefaultValue" Path="_it/Plant"/>
                 <Annotation Term="SAP__UI.Hidden"/>
@@ -6026,6 +6076,10 @@
                 <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
                 <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
                 <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_P2P_WB_DEVICEVHType/DeviceID">
+                <Annotation Term="SAP__common.Label" String="Device ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Weighbridge integration: device ID"/>
             </Annotations>
             <Annotations Target="SAP__self.ZC_P2P_INBGATEPASSControl/BillOfLanding">
                 <Annotation Term="SAP__common.Label" String="Dyn. Field Control"/>

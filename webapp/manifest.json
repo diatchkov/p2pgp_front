@@ -409,6 +409,16 @@
       "type": "XML",
       "async": true,
       "id": "appRootView"
+    },
+    
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController#ae.emsteel.asas.p2pgp::ZC_P2P_INBGATEPASSList": {
+            "controllerName": "ae.emsteel.asas.p2pgp.ext.controller.ListReportExt"
+          }
+        }
+      }
     }
   },
   "sap.fiori": {
