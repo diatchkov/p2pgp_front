@@ -17,6 +17,7 @@ sap.ui.define([
 					const sWBID = localStorage.getItem("WBID");
 
 					_extensionAPI.setCustomMessage(oMessage);
+					
 					if (sWBID) {
 						var oMessage = {
 							message: "Weighbridge ID is set to: " + sWBID,
