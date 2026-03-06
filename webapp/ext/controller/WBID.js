@@ -8,13 +8,11 @@ sap.ui.define([
 
     let _oDialog = null;
     let _oView   = null;
-    let that     = this;
 
     const oController = {
 
-        set: function( ) {
-            that = this; 
-            _oView = this.editFlow.getView( );
+        set: function( ) { 
+            _oView = this.getEditFlow( ).getView( );
             const oModel = _oView.getModel();
 
             const oListBinding = oModel.bindList("/ZC_P2P_WB_DEVICEVH", null, [], [], {

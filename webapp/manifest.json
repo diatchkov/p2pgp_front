@@ -196,7 +196,8 @@
                     }
                   }
                 }
-              }
+              },
+              "initialLoad": "Enabled"
             }
           },
           "controlAggregation": "beginColumnPages",
@@ -240,6 +241,26 @@
                     "creationMode": {
                       "createAtEnd": true,
                       "name": "Inline"
+                    }
+                  }
+                },
+                "@com.sap.vocabularies.UI.v1.FieldGroup#WBInfoGross": {
+                  "actions": {
+                    "InbGetWBGrossWeight": {
+                      "press": "ae.emsteel.asas.p2pgp.ext.controller.InbWBGrossWeight.get",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "{i18n>getGrossWeight}"
+                    }
+                  }
+                },
+                "@com.sap.vocabularies.UI.v1.FieldGroup#WBInfoTare": {
+                  "actions": {
+                    "InbGetWBTareWeight": {
+                      "press": "ae.emsteel.asas.p2pgp.ext.controller.InbWBTareWeight.get",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "{i18n>getTareWeight}"
                     }
                   }
                 }
@@ -354,7 +375,27 @@
                       }
                     }
                   }
-                }
+                },
+                "@com.sap.vocabularies.UI.v1.FieldGroup#WBInfoGross": {
+                  "actions": {
+                    "InbGetWBGrossWeight": {
+                      "press": "ae.emsteel.asas.p2pgp.ext.controller.OtbWBGrossWeight.get",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "{i18n>getGrossWeight}"
+                    }
+                  }
+                },
+                "@com.sap.vocabularies.UI.v1.FieldGroup#WBInfoTare": {
+                  "actions": {
+                    "InbGetWBTareWeight": {
+                      "press": "ae.emsteel.asas.p2pgp.ext.controller.OtbWBTareWeight.get",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "{i18n>getTareWeight}"
+                    }
+                  }
+                }                
               },
               "content": {
                 "header": {
@@ -410,7 +451,6 @@
       "async": true,
       "id": "appRootView"
     },
-    
     "extends": {
       "extensions": {
         "sap.ui.controllerExtensions": {

@@ -648,6 +648,7 @@
             </Action>
             <Action Name="GetWBGrossWeight" IsBound="true">
                 <Parameter Name="_it" Type="com.sap.gateway.srvd.zp2p_ui_gp.v0001.ZC_P2P_OTBGATEPASSType" Nullable="false"/>
+                <Parameter Name="WBID" Type="Edm.String" Nullable="false" MaxLength="40"/>
             </Action>
             <Action Name="Prepare" IsBound="true">
                 <Parameter Name="_it" Type="com.sap.gateway.srvd.zp2p_ui_gp.v0001.ZC_P2P_INBGATEPASSType" Nullable="false"/>
@@ -695,9 +696,11 @@
             </Action>
             <Action Name="GetWBGrossWeight" IsBound="true">
                 <Parameter Name="_it" Type="com.sap.gateway.srvd.zp2p_ui_gp.v0001.ZC_P2P_INBGATEPASSType" Nullable="false"/>
+                <Parameter Name="WBID" Type="Edm.String" Nullable="false" MaxLength="40"/>
             </Action>
             <Action Name="GetWBTareWeight" IsBound="true">
                 <Parameter Name="_it" Type="com.sap.gateway.srvd.zp2p_ui_gp.v0001.ZC_P2P_INBGATEPASSType" Nullable="false"/>
+                <Parameter Name="WBID" Type="Edm.String" Nullable="false" MaxLength="40"/>
             </Action>
             <Action Name="Edit" EntitySetPath="_it" IsBound="true">
                 <Parameter Name="_it" Type="com.sap.gateway.srvd.zp2p_ui_gp.v0001.ZC_P2P_OTBGATEPASSType" Nullable="false"/>
@@ -706,6 +709,7 @@
             </Action>
             <Action Name="GetWBTareWeight" IsBound="true">
                 <Parameter Name="_it" Type="com.sap.gateway.srvd.zp2p_ui_gp.v0001.ZC_P2P_OTBGATEPASSType" Nullable="false"/>
+                <Parameter Name="WBID" Type="Edm.String" Nullable="false" MaxLength="40"/>
             </Action>
             <Action Name="PrintPlanNote" IsBound="true">
                 <Parameter Name="_it" Type="com.sap.gateway.srvd.zp2p_ui_gp.v0001.ZC_P2P_OTBGATEPASSITEMType" Nullable="false"/>
@@ -6374,9 +6378,25 @@
                 <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
                 <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
             </Annotations>
+            <Annotations Target="SAP__self.GetWBGrossWeight(SAP__self.ZC_P2P_OTBGATEPASSType)/WBID">
+                <Annotation Term="SAP__common.Label" String="Device ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Weighbridge integration: device ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.GetWBGrossWeight(SAP__self.ZC_P2P_INBGATEPASSType)/WBID">
+                <Annotation Term="SAP__common.Label" String="Device ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Weighbridge integration: device ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.GetWBTareWeight(SAP__self.ZC_P2P_INBGATEPASSType)/WBID">
+                <Annotation Term="SAP__common.Label" String="Device ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Weighbridge integration: device ID"/>
+            </Annotations>
             <Annotations Target="SAP__self.Edit(SAP__self.ZC_P2P_OTBGATEPASSType)/PreserveChanges">
                 <Annotation Term="SAP__common.Label" String="TRUE"/>
                 <Annotation Term="SAP__common.QuickInfo" String="Data element for domain BOOLE: TRUE (='X') and FALSE (=' ')"/>
+            </Annotations>
+            <Annotations Target="SAP__self.GetWBTareWeight(SAP__self.ZC_P2P_OTBGATEPASSType)/WBID">
+                <Annotation Term="SAP__common.Label" String="Device ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Weighbridge integration: device ID"/>
             </Annotations>
             <Annotations Target="SAP__self.Edit(SAP__self.ZC_P2P_INBGATEPASSType)/PreserveChanges">
                 <Annotation Term="SAP__common.Label" String="TRUE"/>
