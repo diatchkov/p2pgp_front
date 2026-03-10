@@ -39,6 +39,14 @@ sap.ui.define([
                 console.error("PDF Error:", error);
                 return null;
             }
-        }
+        },
+
+        isEnabled: function (oBindingContext, aSelectedContexts, sProperty) {
+            if (!oBindingContext) return false;
+
+            var isEnabled = oBindingContext.getProperty(sProperty);
+
+            return isEnabled;
+        }        
     };
 });

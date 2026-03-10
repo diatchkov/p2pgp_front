@@ -1,4 +1,6 @@
-sap.ui.define([], function( ) {
+sap.ui.define([
+    "ae/emsteel/asas/p2pgp/utils/common"    
+], function(Common) {
     'use strict';
 
     return {
@@ -15,6 +17,10 @@ sap.ui.define([], function( ) {
                     { name: "WBID", value: sWBID } 
                 ]
             });
-        }
+        },
+
+        isEnabled: function (oBindingContext, aSelectedContexts) {
+            return Common.isEnabled(oBindingContext, aSelectedContexts, "__OperationControl/GetWBTareWeight");
+        }           
     };
 });

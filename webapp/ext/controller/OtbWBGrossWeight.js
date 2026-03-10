@@ -1,6 +1,6 @@
 sap.ui.define([
-    "sap/m/MessageToast"
-], function(MessageToast) {
+    "ae/emsteel/asas/p2pgp/utils/common"
+], function(Common) {
     'use strict';
 
     return {
@@ -17,6 +17,10 @@ sap.ui.define([
                     { name: "WBID", value: sWBID } 
                 ]
             });
+        },
+
+        isEnabled: function (oBindingContext, aSelectedContexts) {
+            return Common.isEnabled(oBindingContext, aSelectedContexts, "__OperationControl/GetWBGrossWeight");
         }
     };
 });
