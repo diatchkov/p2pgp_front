@@ -74,7 +74,7 @@ sap.ui.define([
 
         const oJsonModel = new JSONModel({ items: aItems });
 
-        if (_oDialog) {
+        if (_oDialog && !_oDialog.bIsDestroyed) {
             _oDialog.setModel(oJsonModel, "wbidModel");
             _oDialog.open();
             return;

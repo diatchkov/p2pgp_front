@@ -42,11 +42,12 @@ sap.ui.define([
         },
 
         isEnabled: function (oBindingContext, aSelectedContexts, sProperty) {
-            if (!oBindingContext) return false; 
+            if (!oBindingContext) return false;
 
-            var isEnabled = oBindingContext.getProperty(sProperty);
-            
-            return (isEnabled === undefined) ? false : isEnabled;
+            return oBindingContext.requestProperty(sProperty).then(function (bEnabled) {
+                return bEnabled;
+            });
+
         }        
     };
 });
