@@ -16,7 +16,7 @@
                     <core:Item
                         id = "wbidItem"
                         key="{wbidModel>DeviceID}"
-                        text="{wbidModel>DeviceID}" />
+                        text="{wbidModel>Location} ({wbidModel>DeviceID})" />
                 </items>
             </Select>
         </content>

@@ -16,7 +16,7 @@ sap.ui.define([
             const oModel = _oView.getModel();
 
             const oListBinding = oModel.bindList("/ZC_P2P_WB_DEVICEVH", null, [], [], {
-                $select: "DeviceID"
+                $select: "DeviceID,Location"
             });
 
             oListBinding.requestContexts(0, 100).then(function(aContexts) {
