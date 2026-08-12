@@ -33,7 +33,8 @@ server:
         backend:
           - path: /sap
             url: http://vhemmedvci.sap.emsteel.com:44300
-            destination: Emiratesteel_DEV_120_HTTP
+            client: '110'
+            destination: Emiratesteel_DEV_110_HTTP
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:

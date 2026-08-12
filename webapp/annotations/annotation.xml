@@ -109,7 +109,36 @@
                             <PropertyValue Property="Target" AnnotationPath="_PO/@UI.LineItem"/>
                         </Record>
                     </Collection>
-                </Annotation>            
+                </Annotation>      
+                <Annotations Target="SAP__self.ZC_P2P_INBGATEPASSType/OrderNumber">
+                    <Annotation Term="SAP__common.FieldControl" Path="__FieldControl/OrderNumber"/>
+                    <Annotation Term="SAP__common.IsUpperCase"/>     
+                    <Annotation Term="Common.ValueListForValidation">
+                        <If>
+                            <Eq>
+                                <Path>isBillet</Path>
+                                <String>X</String>
+                            </Eq>
+                            <String>Billets</String>
+                            <String>NonBillets</String>
+                        </If>
+                    </Annotation>                                                    
+                    <Annotation Term="com.sap.vocabularies.Common.v1.ValueListRelevantQualifiers">
+                        <Collection>
+                            <If>
+                                <Eq>
+                                    <Path>isBillet</Path>
+                                    <String>X</String>
+                                </Eq>
+                                <String>Billets</String>
+                                <String>NonBillets</String>
+                            </If>
+                        </Collection>
+                    </Annotation>  
+                    <Annotation Term="SAP__common.Label" String="Purchasing Document"/>
+                    <Annotation Term="SAP__common.Heading" String="Pur. Doc."/>
+                    <Annotation Term="SAP__common.QuickInfo" String="Purchasing Document Number"/>
+                </Annotations>                                              
             </Annotations>
             <Annotations Target="SAP__self.ZC_P2P_OTBGATEPASSType">
                 <Annotation Term="UI.SelectionPresentationVariant" Qualifier="SPVOtbGatePass">

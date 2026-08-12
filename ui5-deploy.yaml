@@ -21,6 +21,6 @@ builder:
           name: ZZP2PGP
           description: Gate pass cockpit
           package: ZP2P0006_CLASSIC
-          transport: EDVK9A038G
+          transport:  EDVK9A050S
         exclude:
           - /test/
