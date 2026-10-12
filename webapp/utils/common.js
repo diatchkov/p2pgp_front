@@ -41,13 +41,26 @@ sap.ui.define([
             }
         },
 
-        isEnabled: function (oBindingContext, aSelectedContexts, sProperty) {
-            if (!oBindingContext) return false;
+        isEnabled: async function (oBindingContext, aSelectedContexts, sProperty) {
+            let bEnabled = false;
+            let aContexts = [];
 
-            return oBindingContext.requestProperty(sProperty).then(function (bEnabled) {
-                return bEnabled;
-            });
+            if (oBindingContext) { 
+                aContexts.push(oBindingContext) };
 
-        }        
+            if (aSelectedContexts) { 
+                aSelectedContexts.forEach((context) => {
+                    aContexts.push(context);
+                }); 
+            };
+
+            if (!aContexts || aContexts.length === 0) return false;
+
+            const results = await Promise.all(
+                aContexts.map((context) => context.requestProperty(sProperty))
+            );
+    
+            return results.some((result) => result === true);
+        }         
     };
 });
